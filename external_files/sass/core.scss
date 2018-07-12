@@ -1,0 +1,11 @@
+@import 'partials/utils';
+
+body{
+  font-family: $font-family;
+}
+
+.title-primary{
+  font-size: $title-p-size;
+  color: $text-color;
+  font-family: $font-family;
+}

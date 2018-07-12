@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  form(method="POST", action="/books/create",id="formCreateBook", class="pure-form")    
+    fieldset()
+        legend title
+        input(type="hidden", id="book_id", name="book_id",value=data.book_id)
+        input(type="text",id="book_name", name="book_name", placeholder="Name",value=data.book_name)
+        button(type="submit" class="pure-button pure-button-primary") Create
+  #message
+  if message.show
+    h2= message.msg
+    

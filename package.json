@@ -1,0 +1,29 @@
+{
+  "name": "test-coffee",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "set DEBUG=test-coffee:* & node ./bin/www",
+    "nodemon": "nodemon ./bin/www",
+    "sass-compile": "sass external_files/sass:public/stylesheets",
+    "coffee-compile": "coffee --compile --output ../test-coffee external_files/coffee/",
+    "sass-compile-watch": "sass --watch external_files/sass:public/stylesheets",
+    "coffee-compile-watch": "coffee --watch --compile --output ../test-coffee external_files/coffee/"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "coffeescript": "^2.3.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "nano": "^6.4.4",
+    "nodemon": "^1.17.5",
+    "object-hash": "^1.3.0",
+    "pug": "2.0.0-beta11",
+    "purecss": "^1.0.0",
+    "sass": "^1.9.0",
+    "time-stamp": "^2.0.0"
+  }
+}

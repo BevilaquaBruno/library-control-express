@@ -1,0 +1,24 @@
+extends layout
+      
+block content
+  p= title
+  a(class="pure-button", href="/books/createPage") Create a book
+  #message
+  if message.show
+    h2= message.msg
+  else
+    
+    table(class="pure-table")
+      thead
+        tr
+          td(class="hidden-table") id
+          td name
+      tbody    
+      //- each book in data
+      tr
+        td book.id
+        td book.name
+        
+      
+    div(class="pure-u-1")
+      p to do: list all books, error: cannot get the books outside the function
