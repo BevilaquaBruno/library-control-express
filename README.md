@@ -5,6 +5,7 @@
   - [CouchDb](couchdb.apache.org)
   - [Sass](sass-lang.com)
   - [CoffeeScript](coffeescript.org)
+  - [Pugjs](pugjs.org)
 
   ###### All the files in external/coffee are compiled to .js
 
