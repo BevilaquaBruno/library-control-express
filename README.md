@@ -25,7 +25,7 @@
 
   - compile the sass when some changes are detected
     ```
-   npm run-script sass-compile-watch
+    npm run-script sass-compile-watch
     ```
 
   - compile the .coffee when some changes are detected
