@@ -1,11 +1,11 @@
 # Libray control project
   > this projet use:
 
-  - [Express](expressjs.com)
-  - [CouchDb](couchdb.apache.org)
-  - [Sass](sass-lang.com)
-  - [CoffeeScript](coffeescript.org)
-  - [Pugjs](pugjs.org)
+  - [Express](http://expressjs.com/pt-br/)
+  - [CouchDb](http://couchdb.apache.org/)
+  - [Sass](https://sass-lang.com/)
+  - [CoffeeScript](https://coffeescript.org/)
+  - [Pugjs](https://pugjs.org/api/getting-started.html)
 
   ###### All the files in external/coffee are compiled to .js
 
