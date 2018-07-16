@@ -1,14 +1,14 @@
 {
-  "name": "test-coffee",
+  "name": "library-control-express",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "set DEBUG=test-coffee:* & node ./bin/www",
+    "start": "set DEBUG=library-control-express:* & node ./bin/www",
     "nodemon": "nodemon ./bin/www",
     "sass-compile": "sass external_files/sass:public/stylesheets",
-    "coffee-compile": "coffee --compile --output ../test-coffee external_files/coffee/",
+    "coffee-compile": "coffee --compile --output ../library-control-express external_files/coffee/",
     "sass-compile-watch": "sass --watch external_files/sass:public/stylesheets",
-    "coffee-compile-watch": "coffee --watch --compile --output ../test-coffee external_files/coffee/"
+    "coffee-compile-watch": "coffee --watch --compile --output ../library-control-express external_files/coffee/"
   },
   "dependencies": {
     "async": "^2.6.1",
