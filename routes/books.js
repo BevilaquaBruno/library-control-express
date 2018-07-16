@@ -12,24 +12,30 @@
 
   timestamp = require('time-stamp');
 
-  // GET home page.
+  // GET home page.asdasd
   router.get('/', function(req, res) {
-    var booksList, msg, show;
-    booksList = booksModel.getAll(true);
-    if (!booksList) {
-      show = true;
-      msg = 'Error on get books';
-    } else {
-      show = false;
-      msg = 'page open';
-    }
-    res.render('books', {
-      title: 'Books',
-      data: booksList,
-      message: {
-        show: show,
-        msg: msg
+    var booksList;
+    return booksList = booksModel.getAll(true, function(err, body) {
+      var msg, show;
+      if (err) {
+        show = true;
+        msg = 'Error on get books';
       }
+      if (body.rows > 0) {
+        show = true;
+        msg = 'Error on get books';
+      } else {
+        show = false;
+        msg = 'page open';
+      }
+      res.render('books', {
+        title: 'Books',
+        data: body.rows,
+        message: {
+          show: show,
+          msg: msg
+        }
+      });
     });
   });
 

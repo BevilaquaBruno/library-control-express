@@ -19,12 +19,6 @@ exports.delete = (book) ->
     return
   return
 
-exports.getAll = (docs) ->
+exports.getAll = (docs, callback) ->
   books.list { include_docs: docs }, (err, body) ->
-    if err
-      return false
-    else
-      content = []
-      body.rows.forEach (doc) ->
-        content.push doc.doc
-      return content
+    callback(err,body)

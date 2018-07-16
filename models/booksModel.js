@@ -30,20 +30,11 @@
     });
   };
 
-  exports.getAll = function(docs) {
+  exports.getAll = function(docs, callback) {
     return books.list({
       include_docs: docs
     }, function(err, body) {
-      var content;
-      if (err) {
-        return false;
-      } else {
-        content = [];
-        body.rows.forEach(function(doc) {
-          return content.push(doc.doc);
-        });
-        return content;
-      }
+      return callback(err, body);
     });
   };
 

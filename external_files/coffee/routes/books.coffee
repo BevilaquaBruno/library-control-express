@@ -4,24 +4,27 @@ hash = require 'object-hash'
 booksModel = require '../models/booksModel'
 timestamp = require 'time-stamp'
 
-# GET home page.
+# GET home page.asdasd
 router.get '/', (req, res) ->
-  booksList = booksModel.getAll true  
-  if !booksList
-    show = true
-    msg = 'Error on get books'
-  else
-    show = false
-    msg = 'page open'
+  booksList = booksModel.getAll(true, (err, body) ->
+    if err
+      show = true
+      msg = 'Error on get books'
+    if body.rows > 0
+      show = true
+      msg = 'Error on get books'
+    else
+      show = false
+      msg = 'page open'
 
-  res.render 'books',
-  title: 'Books',
-  data: booksList
-  message:
-    show: show,
-    msg:  msg
-  return
-
+    res.render 'books',
+    title: 'Books',
+    data: body.rows
+    message:
+      show: show,
+      msg:  msg
+    return
+    )
 router.get '/createPage', (req, res) ->
   res.render 'booksCreate',
   title: 'Create a Book',
