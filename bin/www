@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('test-coffee:server');
+var app = require('../dist/app');
+var debug = require('debug')('library-control-express:server');
 var http = require('http');
 
 /**
