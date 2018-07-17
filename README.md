@@ -9,6 +9,7 @@
 
 ### How to run
 
+- First install [couchdb](http://couchdb.apache.org/#download)
 - Clone this repo
 - Run ``` npm install ```
 - Run ``` npm run-script coffee-compile && npm run-script sass-compile```
