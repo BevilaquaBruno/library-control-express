@@ -7,9 +7,13 @@
   - [CoffeeScript](https://coffeescript.org/)
   - [Pugjs](https://pugjs.org/api/getting-started.html)
 
-  ###### All the files in external/coffee are compiled to .js
+### How to run
 
-  ###### All the files in external/sass are compile to .css in public/stylesheets
+- Clone this repo
+- Run ``` npm install ```
+- Run ``` npm run-script coffee-compile && npm run-script sass-compile```
+- Run ``` npm run-script nodemon ```
+- Access [http://localhost:3000](http://localhost:3000)
 
   The commands in package.json:
 

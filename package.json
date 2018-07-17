@@ -5,10 +5,10 @@
   "scripts": {
     "start": "set DEBUG=library-control-express:* & node ./bin/www",
     "nodemon": "nodemon ./bin/www",
-    "sass-compile": "sass external_files/sass:public/stylesheets",
-    "coffee-compile": "coffee --compile --output ../library-control-express external_files/coffee/",
-    "sass-compile-watch": "sass --watch external_files/sass:public/stylesheets",
-    "coffee-compile-watch": "coffee --watch --compile --output ../library-control-express external_files/coffee/"
+    "sass-compile": "sass public/stylesheets:dist/public/stylesheets",
+    "coffee-compile": "coffee --compile --output ./dist ./",
+    "sass-compile-watch": "sass --watch public/stylesheets:dist/public/stylesheets",
+    "coffee-compile-watch": "coffee --watch --compile --output ./dist ./"
   },
   "dependencies": {
     "async": "^2.6.1",

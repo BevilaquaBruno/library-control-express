@@ -19,7 +19,7 @@ booksRouter = require './routes/books'
 app = express()
 
 # view engine setup
-app.set 'views', path.join(__dirname,'views')
+app.set 'views', path.join(__dirname,'../views')
 app.set 'view engine', 'pug'
 
 app.use logger('dev')
@@ -29,7 +29,7 @@ app.use cookieParser()
 app.use express.static(path.join(__dirname, 'public'))
 
 #purecss files
-app.use '/pure', express.static(__dirname + '/node_modules/purecss/build')
+app.use '/pure', express.static('node_modules/purecss/build')
 
 app.use '/', indexRouter
 app.use '/books', booksRouter
