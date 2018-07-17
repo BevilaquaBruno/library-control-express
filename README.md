@@ -1,4 +1,4 @@
-# Libray control project
+# Library control project
   > this projet use:
 
   - [Express](http://expressjs.com/pt-br/)
