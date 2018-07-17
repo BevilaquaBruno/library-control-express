@@ -11,6 +11,7 @@
 
 - First install [couchdb](http://couchdb.apache.org/#download)
 - Clone this repo
+- Run ``` cd library-control-express ```
 - Run ``` npm install ```
 - Run ``` npm run-script coffee-compile && npm run-script sass-compile```
 - Run ``` npm run-script nodemon ```
