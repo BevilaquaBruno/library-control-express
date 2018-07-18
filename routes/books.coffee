@@ -3,6 +3,7 @@ router = express.Router()
 hash = require 'object-hash'
 booksModel = require '../models/booksModel'
 timestamp = require 'time-stamp'
+utils = require '../public/javascripts/utils'
 
 # GET home page.asdasd
 router.get '/', (req, res) ->
@@ -25,7 +26,17 @@ router.get '/', (req, res) ->
       msg:  msg
     return
     )
-router.get '/createPage', (req, res) ->
+
+router.delete '/delete/:id', (req, res)->
+  if !isNaN req.params.id
+    {msg: 'Error identifying book', success: false, show: true, redirect: '/books'}
+  obj = booksModel.delete req.params.id
+  if obj
+    {msg:'Book deleted !', success: obj, show: true, redirect: '/books'}
+  else
+    {msg:'Error on delete book', success: obj, show: true, redirect: false}
+
+router.get '/create', (req, res) ->
   res.render 'booksCreate',
   title: 'Create a Book',
   message:
@@ -41,23 +52,8 @@ router.post '/create', (req, res) ->
   myHash = hash req.body
   obj = booksModel.create req.body, myHash
   if obj
-    req.showMsg = true
-    req.msgMsg =  'Book has been created'
-    res.redirect '/books'
-    # res.render 'books',
-    # title: 'books',
-    # message:
-    #   show: true
-    #   msg: 'Book has been created'
+    {msg: 'books has been create', show: true, success: obj, redirect: '/books'}
   else
-    res.render 'booksCreate',
-    title: 'Create a book',
-    message:
-      show:true,
-      msg:'An error on create book has ocurred'
-    data:
-      book_id:''
-      book_name: req.body.book_name
-  return
+    {msg: 'Error on create book', show: true, success: obj, redirect: false}
 
 module.exports = router

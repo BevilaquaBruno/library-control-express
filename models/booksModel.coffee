@@ -9,8 +9,8 @@ exports.create = (book, myHash) ->
     return
   return
 
-exports.delete = (book) ->
-  return books.get book.book_id, (err, body) ->
+exports.delete = (book_id) ->
+  return books.get book_id, (err, body) ->
     books.destroy body._id,  body._rev, (err, body) ->
       if err
         return false
