@@ -3,7 +3,8 @@ html
   head
     title= title
     meta(charset='utf-8')
-      
+    block scripts-head-js
+      script(type='text/javascript', src='/javascripts/utils.js')
     block links-css
       link(rel='stylesheet', href='/stylesheets/menu.css')   
       link(rel='stylesheet', href='/stylesheets/core.css')   
@@ -34,4 +35,5 @@ html
       
       
     block scripts-js
-      script(type='text/javascript', src='/javascripts/layout.js')
+      script(type='text/javascript', src='/javascripts/layout.js')      
+      

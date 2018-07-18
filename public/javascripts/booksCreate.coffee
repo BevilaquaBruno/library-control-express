@@ -1,6 +1,4 @@
-utils = new utils()
-
 document.getElementById('submitBook').addEventListener 'click', (e) ->
   e.preventDefault();
-  utils.sendPost '/books/create', 'formCreateBook'
+  sendPost 'http://localhost:3000/books/create', 'formCreateBook'
   return
