@@ -5,7 +5,7 @@ myutils.sendPost = (url, form) ->
     method: 'post'
     body: new FormData(form)).then((response) ->
       response.json().then (data) ->
-
+        console.log data
   ).catch (err) ->
     console.error err
     return

@@ -19,18 +19,14 @@ router.get '/', (req, res) ->
       title: 'Books',
       data: body.rows
       message:
-        show: show,
+        show: show
         msg:  msg
         return
     )
 
 router.delete '/delete/:id', (req, res)->
   if !isNaN req.params.id
-<<<<<<< HEAD
-    res.status(200).json(
-=======
     res.status(422).json(
->>>>>>> a3e29bba8daf5e36ce6d6cf18b2f038c7072fa8b
       msg: 'Error identifying book'
       success: false
       show: true
@@ -61,35 +57,14 @@ router.get '/create', (req, res) ->
 router.post '/create', (req, res) ->
   req.body.book_timestamp = timestamp 'YYYYMMDDmmss'
   if !handlers.fieldExists req.body.book_name
-<<<<<<< HEAD
-    res.status(422).send(
-=======
+
     res.status(422).json(
->>>>>>> a3e29bba8daf5e36ce6d6cf18b2f038c7072fa8b
       msg: 'Book name is undefined'
       show: true
       success: false
       redirect: false
       )
-<<<<<<< HEAD
-  else
-    myHash = hash req.body
-    obj = booksModel.create req.body, myHash
-    if obj
-      res.status(200).json(
-        msg: 'books has been create'
-        show: true
-        success: obj
-        redirect: '/books'
-      )
-    else
-      res.status(200).json(
-        msg: 'Error on create book'
-        show: true
-        success: obj
-        redirect: false
-      )
-=======
+
   myHash = hash req.body
   obj = booksModel.create req.body, myHash
   if obj
@@ -106,6 +81,5 @@ router.post '/create', (req, res) ->
       success: obj
       redirect: false
     )
->>>>>>> a3e29bba8daf5e36ce6d6cf18b2f038c7072fa8b
 
 module.exports = router
