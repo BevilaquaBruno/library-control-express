@@ -9,3 +9,59 @@ body{
   color: $text-color;
   font-family: $font-family;
 }
+
+.myAlert{
+    width: 300px;
+    border: 0.5px solid black;
+    position: absolute;
+    left: 40%;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.messageDiv{
+  text-align: center;
+}
+
+.headerAlert{
+  border-radius: 10px;
+  background-color: rgba(126, 198, 251, 0.9);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  padding-left: 20px;
+  border-bottom: 1px solid black;
+}
+
+.headerAlert>p {
+  margin-bottom: 0px;
+}
+
+.button-success{
+   background-color: status-color('success');
+}
+.button-error{
+  background-color: status-color('error');
+}
+.button-warning{
+  background-color: status-color('warning');
+}
+.button-info{
+  background-color: status-color('info');
+}
+
+.button-xsmall {
+    font-size: 70%;
+}
+
+.button-small {
+    font-size: 85%;
+}
+
+.button-large {
+    font-size: 110%;
+}
+
+.button-xlarge {
+    font-size: 125%;
+}
