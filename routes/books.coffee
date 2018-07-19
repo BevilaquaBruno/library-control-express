@@ -3,7 +3,7 @@ router = express.Router()
 hash = require 'object-hash'
 booksModel = require '../models/booksModel'
 timestamp = require 'time-stamp'
-handlers = require '../helpers/handlers'
+field_validator = require '../helpers/fields-validator'
 
 # GET home page.asdasd
 router.get '/', (req, res) ->
@@ -49,37 +49,36 @@ router.get '/create', (req, res) ->
     message:
       show: false,
       msg:  'page open'
-      data:
-        book_id: req.book_id || ''
-        book_name: req.book_name || ''
+    data:
+      book_id: req.book_id || ''
+      book_name: req.book_name || ''
   return
 
 router.post '/create', (req, res) ->
   req.body.book_timestamp = timestamp 'YYYYMMDDmmss'
-  if !handlers.fieldExists req.body.book_name
-
+  if !field_validator.fieldExists req.body.book_name
     res.status(422).json(
       msg: 'Book name is undefined'
       show: true
       success: false
       redirect: false
-      )
-
-  myHash = hash req.body
-  obj = booksModel.create req.body, myHash
-  if obj
-    res.status(200).json(
-      msg: 'books has been create'
-      show: true
-      success: obj
-      redirect: '/books'
     )
   else
-    res.status(409).json(
-      msg: 'Error on create book'
-      show: true
-      success: obj
-      redirect: false
-    )
+    myHash = hash req.body
+    obj = booksModel.create req.body, myHash
+    if obj
+      res.status(200).json(
+        msg: 'books has been create'
+        show: true
+        success: obj
+        redirect: '/books'
+      )
+    else
+      res.status(409).json(
+        msg: 'Error on create book'
+        show: true
+        success: obj
+        redirect: false
+      )
 
 module.exports = router

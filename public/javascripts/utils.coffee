@@ -1,21 +1,22 @@
 myutils = exports ? this
 myutils.sendPost = (url, form) ->
-  form = document.getElementById form
+  object = {}
+  formData = new FormData form
+  formData.forEach (value, key) ->
+    object[key] = value
+  jsonData = JSON.stringify(object)
+
   fetch(url,
     method: 'post'
-    body: new FormData(form)).then((response) ->
+    headers: new Headers(
+      'content-type': 'application/json')
+    body: jsonData).then((response) ->
       response.json().then (data) ->
         console.log data
-  ).catch (err) ->
-    console.error err
+        if data.show is true
+          alert data.msg
+        if data.redirect isnt false
+          window.location.href = data.redirect
+    ).catch (err) ->
+      console.error 'Failed retrieving information', err
     return
-
-myutils.openAlert = (type, msg) ->
-  myAlert = document.getElementById 'myAlert'
-  type = if type is '' then null else type
-  if type is 'error'
-    myalert.className = 'errorAlert'
-  else if type is 'success'
-    myalert.className = 'successAlert'
-  else if type is null
-    myalert.className = 'infoAlert'
