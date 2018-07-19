@@ -16,12 +16,12 @@ router.get '/', (req, res) ->
       msg = 'page open'
 
     res.render 'books',
-      title: 'Books',
-      data: body.rows
-      message:
-        show: show
-        msg:  msg
-        return
+    title: 'Books',
+    data: body.rows
+    message:
+      show: show
+      msg:  msg
+    return
     )
 
 router.delete '/delete/:id', (req, res)->
