@@ -28,8 +28,8 @@ app.use express.urlencoded(extended: false)
 app.use cookieParser()
 app.use express.static(path.join(__dirname, 'public'))
 
-#purecss files
-app.use '/pure', express.static('node_modules/purecss/build')
+#spectre files
+app.use '/spectre', express.static('node_modules/spectre.css/dist')
 
 app.use '/', indexRouter
 app.use '/books', booksRouter

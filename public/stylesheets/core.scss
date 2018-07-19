@@ -2,33 +2,5 @@
 
 body{
   font-family: $font-family;
-}
-
-.button-success{
-   background-color: status-color('success');
-}
-.button-error{
-  background-color: status-color('error');
-}
-.button-warning{
-  background-color: status-color('warning');
-}
-.button-info{
-  background-color: status-color('info');
-}
-
-.button-xsmall {
-    font-size: 70%;
-}
-
-.button-small {
-    font-size: 85%;
-}
-
-.button-large {
-    font-size: 110%;
-}
-
-.button-xlarge {
-    font-size: 125%;
+  color: $text-color;
 }

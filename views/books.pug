@@ -2,13 +2,13 @@ extends layout
       
 block content
   p= title
-  a(class="pure-button", href="/books/create") Create a book
+  a(class="btn btn-primary", href="/books/create") Create a book
   #message
   if message.show
     h2= message.msg
   else
     
-    table(class="pure-table")
+    table(class="table table-hover")
       thead
         tr
           td(style="display: none") id

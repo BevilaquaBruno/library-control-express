@@ -8,20 +8,14 @@ html
     block links-css
       link(rel='stylesheet', href='/stylesheets/menu.css')   
       link(rel='stylesheet', href='/stylesheets/core.css')   
-      link(rel='stylesheet', href='/pure/pure-min.css')
-      //- ie 8 shit grid
-      <!--[if lte IE 8]>
-          link(rel='stylesheet', href='/pure/grids-responsive-old-ie-min.css')
-      <![endif]-->
-      <!--[if gt IE 8]><!-->
-          link(rel='stylesheet', href='/pure/grids-responsive-min.css')
-      <!--<![endif]-->      
-                        
+      link(rel='stylesheet', href='/spectre/spectre-exp.min.css')
+      link(rel='stylesheet', href='/spectre/spectre-icons.min.css')
+      link(rel='stylesheet', href='/spectre/spectre.min.css')
+      
   body  
     include includes/menu.pug  
     
     block content
       
     block scripts-js
-      script(type='text/javascript', src='/javascripts/layout.js')      
       
