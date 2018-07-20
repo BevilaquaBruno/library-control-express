@@ -41,7 +41,12 @@ router.delete '/delete/:id', (req, res)->
       redirect: '/books'
     )
   else
-    {msg:'Error on delete book', success: obj, show: true, redirect: false}
+    res.status(422).json(
+      msg:'Error on delete book'
+      success: obj
+      show: true
+      redirect: false
+    )
 
 router.get '/create', (req, res) ->
   res.render 'booksCreate',
