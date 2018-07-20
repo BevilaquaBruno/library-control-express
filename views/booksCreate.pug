@@ -6,9 +6,9 @@ block content
     fieldset
       legend title
       .form-group
-      label(class="form-label") Name:
-      input(class="form-input",type="text",id="book_name", name="book_name", placeholder="Name",value=data.book_name)
-      button(type="submit" class="pure-button pure-button-primary", id="submitBook") Create
+        label(class="form-label") Name:
+        input(class="form-input",type="text",id="book_name", name="book_name", placeholder="Name",value=data.book_name)
+          button(type="submit" class="pure-button pure-button-primary", id="submitBook") Create
   #message
   if message.show
     h2= message.msg
