@@ -1,0 +1,18 @@
+mixin action-buttons(field, big_field,id_delete, ...opcs)
+  .btn-group.btn-group-block
+    each opc in opcs
+      case opc
+        when "update"
+          button(class="btn btn-primary", name="update"+big_field, id="update"+big_field, href="/"+field+"s/update") Update
+        when "delete"
+          button(class="btn btn-error delete"+big_field, name="delete"+big_field, id="delete"+big_field, onclick="sendDelete('http://localhost:3000/"+field+"s/delete/"+id_delete+"')") Delete
+        
+mixin thead-tables(...tds)
+  each td in tds
+    case td
+      when "id"
+        
+        td(style="display: none") id          
+      default
+              
+        td=td 

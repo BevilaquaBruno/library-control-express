@@ -1,5 +1,7 @@
-extends layout
-      
+extends ../layout
+
+include ../includes/_mixins.pug
+
 block content
   p= title
   a(class="btn btn-primary", href="/books/create") Create a book
@@ -11,10 +13,13 @@ block content
     table(class="table table-hover")
       thead
         tr
-          td(style="display: none") id
-          td name          
+          +thead-tables('id','Name','Actions')          
       tbody    
       each book in data
         tr
           td(style="display: none")= book.id
           td= book.doc.name
+          td 
+            +action-buttons('book','Book',book.id,"update", "delete")
+block append scripts-js
+  script(type='text/javascript', src='/javascripts/booksCreate.js')

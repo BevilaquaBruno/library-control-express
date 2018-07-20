@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  .colums
+    form(id="formCreateBook")    
+      input(type="hidden", id="book_id", name="book_id",value=data.book_id)  
+      .columns
+        .col-5
+          label(class="form-label") Name
+          input(class="form-input",type="text",id="book_name", name="book_name", placeholder="Name",value=data.book_name)
+          button(type="submit" class="pure-button pure-button-primary", id="submitBook") Create
+  #message
+  if message.show
+    h2= message.msg
+
+block append scripts-js
+  script(type='text/javascript', src='/javascripts/booksCreate.js')

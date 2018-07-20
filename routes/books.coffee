@@ -15,7 +15,7 @@ router.get '/', (req, res) ->
       show = false
       msg = 'page open'
 
-    res.render 'books',
+    res.render 'books/books',
     title: 'Books',
     data: body.rows
     message:
@@ -25,39 +25,38 @@ router.get '/', (req, res) ->
     )
 
 router.delete '/delete/:id', (req, res)->
-  if !isNaN req.params.id
+  if !field_validator.fieldExists req.params.id
     res.status(422).json(
       msg: 'Error identifying book'
       success: false
       show: true
       redirect: '/books'
     )
-  obj = booksModel.delete req.params.id
-  if obj
-    res.status(200).json(
-      msg:'Book deleted !'
-      success: obj
-      show: true
-      redirect: '/books'
-    )
-  else
-    res.status(422).json(
-      msg:'Error on delete book'
-      success: obj
-      show: true
-      redirect: false
-    )
+  obj = booksModel.delete req.params.id, (err, body) ->
+    if !err
+      res.status(200).json(
+        msg:'Book deleted !'
+        success: obj
+        show: true
+        redirect: '/books'
+      )
+    else
+      res.status(422).json(
+        msg:'Error on delete book'
+        success: obj
+        show: true
+        redirect: false
+      )
 
-router.get '/create', (req, res) ->
-  res.render 'booksCreate',
-    title: 'Create a Book',
-    message:
-      show: false,
-      msg:  'page open'
-    data:
-      book_id: req.book_id || ''
-      book_name: req.book_name || ''
-  return
+  router.get '/create', (req, res) ->
+    res.render 'books/booksCreate',
+      title: 'Create a Book',
+      message:
+        show: false,
+        msg:  'page open'
+      data:
+        book_id: ''
+        book_name: ''    
 
 router.post '/create', (req, res) ->
   req.body.book_timestamp = timestamp 'YYYYMMDDmmss'
@@ -70,20 +69,20 @@ router.post '/create', (req, res) ->
     )
   else
     myHash = hash req.body
-    obj = booksModel.create req.body, myHash
-    if obj
-      res.status(200).json(
-        msg: 'books has been create'
-        show: true
-        success: obj
-        redirect: '/books'
-      )
-    else
-      res.status(409).json(
-        msg: 'Error on create book'
-        show: true
-        success: obj
-        redirect: false
-      )
+    obj = booksModel.create req.body, myHash, (err, body) ->
+      if !err
+        res.status(200).json(
+          msg: 'books has been create'
+          show: true
+          success: obj
+          redirect: '/books'
+        )
+      else
+        res.status(409).json(
+          msg: 'Error on create book'
+          show: true
+          success: obj
+          redirect: false
+        )
 
 module.exports = router
