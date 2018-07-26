@@ -3,6 +3,7 @@ couch = require './couchdb'
 
 databases = [
   'books'
+  'authors'
 ]
 
 initCouch = (cb)->
