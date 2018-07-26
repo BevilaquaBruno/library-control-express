@@ -18,9 +18,8 @@ router.get '/', (req, res) ->
     res.render 'books/books',
     title: 'Books',
     data: body.rows
-    message:
-      show: show
-      msg:  msg
+    show: show
+    msg:  msg
     return
     )
 
