@@ -2,24 +2,29 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content
-  p= title
-  a(class="btn btn-primary", href="/books/create") Create a book
-  #message
-  if message.show
-    h2= message.msg
-  else
-    
-    table(class="table table-hover")
-      thead
-        tr
-          +thead-tables('id','Name','Actions')          
-      tbody    
-      each book in data
-        tr
-          td(style="display: none")= book.id
-          td= book.doc.name
-          td 
-            +action-buttons('book','Book',book.id,"update", "delete")
+block content  
+  .card
+    .card-header.card-header-table-gray
+      .columns
+        .column.col-10
+          h1= title
+        .column
+          a(class="btn btn-rounded btn-success", href="/books/create") Create a book    
+    .card-body        
+      table(class="table table-hover table-striped")
+        thead
+          tr
+            +thead-tables('id','Name','Authors','Release date','Publisher','Actions')          
+        tbody    
+        each book in data
+          tr
+            td(style="display: none")= book.id
+            td= book.doc.name
+            td= book.doc.name
+            td= book.doc.name
+            td= book.doc.name        
+            td(style="width: 11%") 
+              +action-buttons('book','Book',book.id,"update", "delete")
+     
 block append scripts-js
   script(type='text/javascript', src='/javascripts/booksCreate.js')

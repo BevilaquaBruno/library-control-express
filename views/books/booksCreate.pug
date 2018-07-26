@@ -1,17 +1,32 @@
 extends ../layout
 
-block content
-  .colums
-    form(id="formCreateBook")    
-      input(type="hidden", id="book_id", name="book_id",value=data.book_id)  
-      .columns
-        .col-5
-          label(class="form-label") Name
-          input(class="form-input",type="text",id="book_name", name="book_name", placeholder="Name",value=data.book_name)
-          button(type="submit" class="pure-button pure-button-primary", id="submitBook") Create
-  #message
-  if message.show
-    h2= message.msg
+include ../includes/_mixins.pug
+
+block content  
+  +chipPage({href: '/books', name: 'Books'}, {href: '/books/create', name: 'Create a book'})
+  .colums    
+    .card
+      .card-header
+        h3=title
+      .card-body        
+        form(id="formCreateBook")              
+          .columns
+            .column.col-3
+              .col-1
+                label(class="form-label") Name
+              .col-11
+                input(class="form-input",type="text",id="book_name", name="book_name", placeholder="Name")
+            .column.col-6       
+              .col-1                
+                label(class="form-label") Gender
+              .col-3
+                select(class="form-select", name="book_gender")
+                  option(value="1") Action
+                  option(value="2") Romance  
+                  
+      .card-footer
+        .col-3
+          button(type="submit" class="btn btn-rounded btn-success", id="submitBook") Create
 
 block append scripts-js
   script(type='text/javascript', src='/javascripts/booksCreate.js')

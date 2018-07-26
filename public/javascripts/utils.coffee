@@ -14,8 +14,8 @@ myutils.sendPost = (url, form) ->
       response.json().then (data) ->
         console.log data
         if data.show is true
-          alert data.msg
-        if data.redirect isnt false
+          showModalAlert data.msg, data.success, data.redirect
+        else if data.redirect isnt false
           window.location.href = data.redirect
     ).catch (err) ->
       console.error 'Failed retrieving information', err
@@ -45,5 +45,12 @@ myutils.showModalAlert = (msg, success, redirect) ->
   modal.className = 'modal modal-sm active'
   if redirect isnt false
     btnCloseModal.innerHTML = 'Allright'
-    btnCloseModal.href = redirect
-    xCloseModal.href = redirect
+    btnCloseModal.href = redirect || '#myMenu'
+    xCloseModal.href = redirect || '#myMenu'
+  else
+    btnCloseModal.addEventListener 'click', (e) ->
+      e.preventDefault()
+      modal.className = 'modal modal-sm'
+    xCloseModal.addEventListener 'click', (e) ->
+      e.preventDefault()
+      modal.className = 'modal modal-sm'

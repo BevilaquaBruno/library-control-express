@@ -24,6 +24,22 @@ router.get '/', (req, res) ->
     return
     )
 
+router.get '/update/:id', (req, res)->
+  if !field_validator.fieldExists req.params.id
+    res.status(422).json(
+      msg: 'Error identifying book'
+      success: false
+      show: true
+      redirect: '/books'
+    )
+  booksModel.getBookById req.params.id, (body) ->
+    console.log body
+    res.render 'books/updateBook',
+      title: 'Update a book'
+      msg: 'page open'
+      show: false
+      data: body
+
 router.delete '/delete/:id', (req, res)->
   if !field_validator.fieldExists req.params.id
     res.status(422).json(
@@ -48,15 +64,11 @@ router.delete '/delete/:id', (req, res)->
         redirect: false
       )
 
-  router.get '/create', (req, res) ->
-    res.render 'books/booksCreate',
-      title: 'Create a Book',
-      message:
-        show: false,
-        msg:  'page open'
-      data:
-        book_id: ''
-        book_name: ''    
+router.get '/create', (req, res) ->
+  res.render 'books/booksCreate',
+    title: 'Create a Book',
+    show: false,
+    msg:  'page open'
 
 router.post '/create', (req, res) ->
   req.body.book_timestamp = timestamp 'YYYYMMDDmmss'

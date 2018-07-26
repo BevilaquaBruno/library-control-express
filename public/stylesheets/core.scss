@@ -4,3 +4,15 @@ body{
   font-family: $font-family;
   color: $text-color;
 }
+
+.card-header-table-gray {
+  background-color: gray("200");
+}
+
+.btn-rounded{
+  border-radius: 10px;
+}
+
+.header-menu{
+  background-color: gray("100");
+}

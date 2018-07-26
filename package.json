@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "async": "^2.6.1",
+    "bcryptjs": "^2.4.3",
     "coffeescript": "^2.3.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
@@ -24,6 +25,7 @@
     "pug": "2.0.0-beta11",
     "sass": "^1.9.0",
     "spectre.css": "^0.5.3",
-    "time-stamp": "^2.0.0"
+    "time-stamp": "^2.0.0",
+    "validator": "^10.4.0"
   }
 }

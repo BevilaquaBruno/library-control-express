@@ -1,11 +1,11 @@
-mixin action-buttons(field, big_field,id_delete, ...opcs)
+mixin action-buttons(field, big_field,id, ...opcs)
   .btn-group.btn-group-block
     each opc in opcs
       case opc
         when "update"
-          button(class="btn btn-primary", name="update"+big_field, id="update"+big_field, href="/"+field+"s/update") Update
+          a(class="btn btn-sm btn-primary", name="update"+big_field, id="update"+big_field, href="http://localhost:3000/"+field+"s/update/"+id) Update
         when "delete"
-          button(class="btn btn-error delete"+big_field, name="delete"+big_field, id="delete"+big_field, onclick="sendDelete('http://localhost:3000/"+field+"s/delete/"+id_delete+"')") Delete
+          button(class="btn btn-sm btn-error delete"+big_field, name="delete"+big_field, id="delete"+big_field, onclick="sendDelete('http://localhost:3000/"+field+"s/delete/"+id+"')") Delete
         
 mixin thead-tables(...tds)
   each td in tds
@@ -16,3 +16,12 @@ mixin thead-tables(...tds)
       default
               
         td=td 
+
+mixin chipPage(...opcs)
+  span.chip
+    <i class="avatar avatar-sm icon icon-more-horiz"></i>
+    ul(class="breadcrumb")      
+      each opc in opcs
+        li.breadcrumb-item
+          a(href=opc.href)=opc.name
+  div(style="padding-bottom: 5px;")

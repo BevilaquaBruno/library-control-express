@@ -12,3 +12,7 @@ exports.delete = (book_id, callback) ->
 exports.getAll = (docs, callback) ->
   books.list { include_docs: docs }, (err, body) ->
     callback(err,body)
+
+exports.getBookById = (id, callback) ->
+  # books.get id, {revs_info: true}, callback
+  # do this
