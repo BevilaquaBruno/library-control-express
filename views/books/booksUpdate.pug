@@ -1,0 +1,34 @@
+extends ../layout
+
+include ../includes/_mixins.pug
+
+block content  
+  +chipPage({href: '/books', name: 'Books'}, {href: '#' , name: 'Update a book'})
+  .colums    
+    .card
+      .card-header
+        h3=title
+      .card-body        
+        form(id="formUpdateBook")     
+          input(type="hidden", name="book_id", value=data._id)
+          input(type="hidden", name="book_rev", value=data._rev)
+          .columns
+            .column.col-3
+              .col-1
+                label(class="form-label") Name
+              .col-11
+                input(class="form-input",type="text",id="book_name", name="book_name", placeholder="Name", value=data.name)
+            .column.col-6       
+              .col-1                
+                label(class="form-label") Gender
+              .col-3
+                select(class="form-select", name="book_gender")
+                  option(value="1") Action
+                  option(value="2") Romance  
+                  
+      .card-footer
+        .col-3
+          button(type="submit" class="btn btn-rounded btn-success", id="submitBookUpdate") Create
+
+block append scripts-js
+  script(type='text/javascript', src='/javascripts/booksUpdate.js')

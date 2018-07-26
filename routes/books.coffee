@@ -32,13 +32,13 @@ router.get '/update/:id', (req, res)->
       show: true
       redirect: '/books'
     )
-  booksModel.getBookById req.params.id, (body) ->
-    console.log body
-    res.render 'books/updateBook',
+  booksModel.getBookById req.params.id, (err, thisbook) ->
+    console.log thisbook
+    res.render 'books/booksUpdate',
       title: 'Update a book'
       msg: 'page open'
       show: false
-      data: body
+      data: thisbook
 
 router.delete '/delete/:id', (req, res)->
   if !field_validator.fieldExists req.params.id
@@ -69,6 +69,31 @@ router.get '/create', (req, res) ->
     title: 'Create a Book',
     show: false,
     msg:  'page open'
+
+router.put '/update', (req, res) ->
+  if !field_validator.fieldExists req.body.book_name
+    res.status(422).json(
+      msg: 'Book name is undefined'
+      show: true
+      success: false
+      redirect: false
+    )
+  else
+    booksModel.update req.body, (err, body) ->
+      if err
+        res.status(422).json(
+          msg: 'Error on update book'
+          show: true
+          sucess: false
+          redirect: false
+        )
+      else
+        res.status(200).json(
+          msg: 'books has been updated'
+          show: true
+          success: true
+          redirect: '/books'
+        )
 
 router.post '/create', (req, res) ->
   req.body.book_timestamp = timestamp 'YYYYMMDDmmss'
