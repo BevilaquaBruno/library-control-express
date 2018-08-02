@@ -18,10 +18,10 @@ block content
         tbody    
         each author in data
           tr
-            td(style="display: none")= author.id
+            td(style="display: none")= author._id
             td= author.doc.name
-            td= author.doc.birth_date
-            td= author.doc.death_date
+            td= author.doc.birthdate
+            td= author.doc.deathdate
             td= author.doc.nationality
             td(style="width: 11%") 
               +action-buttons('author','Author',author.id,"update", "delete")
