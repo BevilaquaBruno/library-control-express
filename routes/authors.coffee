@@ -15,11 +15,20 @@ router.get '/', (req, res) ->
       msg = 'page open'
 
     res.render 'authors/authors',
-    title: 'Authors',
-    data: body.rows
-    show: show
-    msg:  msg
+      title: 'Authors',
+      data: body.rows
+      show: show
+      msg:  msg
     return
   )
+
+router.get '/create', (req, res) ->
+  
+  res.render 'authors/authorsCreate',
+      title: 'Create a author'
+      show: false,
+      msg: 'page open'
+      success: true
+      data: null
 
 module.exports = router

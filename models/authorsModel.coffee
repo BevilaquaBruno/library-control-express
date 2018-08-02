@@ -4,9 +4,9 @@ exports.getAll = (docs, callback) ->
   authors.list { include_docs: docs }, (err, body) ->
     callback err,body
 
-# exports.create = (book, myHash, callback) ->
-#   return books.insert {_id: myHash, timestamp: book.book_timestamp, name: book.book_name}, (err, body) ->
-#     callback err, body
+exports.create = (author, myHash, callback) ->
+ return authors.insert {_id: myHash, timestamp: author.author_timestamp, name: author.author_name, fullname: author.author.fullname, deathdate: author.deathdate, birthdate: author.bithdate,nationality: author.nationality, mainlanguage: author.mainlanguage, birth_place: author.birth_place}, (err, body) ->
+   callback err, body
 #
 # exports.delete = (book_id, callback) ->
 #   return books.get book_id, (err, body) ->
