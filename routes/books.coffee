@@ -47,18 +47,18 @@ router.delete '/delete/:id', (req, res)->
       show: true
       redirect: '/books'
     )
-  obj = booksModel.delete req.params.id, (err, body) ->
+  booksModel.delete req.params.id, (err, body) ->
     if !err
       res.status(200).json(
         msg:'Book deleted !'
-        success: obj
+        success: true
         show: true
         redirect: '/books'
       )
     else
       res.status(422).json(
         msg:'Error on delete book'
-        success: obj
+        success: false
         show: true
         redirect: false
       )
@@ -105,7 +105,7 @@ router.post '/create', (req, res) ->
     )
   else
     myHash = hash req.body
-    obj = booksModel.create req.body, myHash, (err, body) ->
+    booksModel.create req.body, myHash, (err, body) ->
       if !err
         res.status(200).json(
           msg: 'books has been create'
