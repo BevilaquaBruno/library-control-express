@@ -88,7 +88,7 @@ router.put '/update', (req, res) ->
         )
       else
         res.status(200).json(
-          msg: 'books has been updated'
+          msg: 'Books has been updated'
           show: true
           success: true
           redirect: '/books'
@@ -108,7 +108,7 @@ router.post '/create', (req, res) ->
     booksModel.create req.body, myHash, (err, body) ->
       if !err
         res.status(200).json(
-          msg: 'books has been create'
+          msg: 'Books has been create'
           show: true
           success: true
           redirect: '/books'
