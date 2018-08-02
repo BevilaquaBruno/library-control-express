@@ -110,14 +110,14 @@ router.post '/create', (req, res) ->
         res.status(200).json(
           msg: 'books has been create'
           show: true
-          success: obj
+          success: true
           redirect: '/books'
         )
       else
         res.status(409).json(
           msg: 'Error on create book'
           show: true
-          success: obj
+          success: false
           redirect: false
         )
 
