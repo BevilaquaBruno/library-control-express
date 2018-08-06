@@ -1,4 +1,4 @@
-# Library control project
+# Library control project :ok_hand:
   > this projet use:
 
   - [Express](http://expressjs.com/pt-br/)
