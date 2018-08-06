@@ -5,8 +5,8 @@ exports.getAll = (docs, callback) ->
     callback err,body
 
 exports.create = (author, myHash, callback) ->
- return authors.insert {_id: myHash, timestamp: author.author_timestamp, name: author.author_name, fullname: author.author_fullname, deathdate: author.author_deathdate, birthdate: author.author_birthdate,nationality: author.author_nationality, mainlanguage: author.author_mainlanguage, birth_place: author.author_birth_place}, (err, body) ->
-   callback err, body
+  return authors.insert {_id: myHash, timestamp: author.author_timestamp, name: author.author_name, fullname: author.author_fullname, deathdate: author.author_deathdate, birthdate: author.author_birthdate,nationality: author.author_nationality, mainlanguage: author.author_mainlanguage, birth_place: author.author_birth_place}, (err, body) ->
+    callback err, body
 
 exports.delete = (author_id, callback) ->
   return authors.get author_id, (err, body) ->

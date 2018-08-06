@@ -51,10 +51,10 @@ myutils.sendDelete = (url) ->
     headers: new Headers(
       'content-type': 'application/json')
   ).then((response) ->
-      response.json().then (data) ->
-        console.log data
-        if data.show is true
-          showModalAlert data.msg, data.success, data.redirect
+    response.json().then (data) ->
+      console.log data
+      if data.show is true
+        showModalAlert data.msg, data.success, data.redirect
     ).catch (err) ->
       console.error 'Failed retrieving information', err
     return

@@ -16,6 +16,6 @@ createDatabase = (db, cb) ->
   couch.db.create db, (err) ->
     if err and err.statusCode is 412
       err = null
-    cb err;
+    cb err
 
-module.exports = initCouch;
+module.exports = initCouch
