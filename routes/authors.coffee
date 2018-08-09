@@ -90,4 +90,53 @@ router.delete '/delete/:id', (req, res) ->
         redirect: false
       )
 
+router.get '/update/:id', (req, res) ->
+  if !field_validator.fieldExists req.params.id
+    res.status(422).json(
+      msg: 'Error identifying book'
+      success: false
+      show: true
+      redirect: '/books'
+    )
+  authorsModel.getAuthorById req.params.id, (err, thisauthor) ->
+    res.render 'authors/authorsUpdate',
+      title: 'Update a author'
+      msg: 'page open'
+      show: false
+      data: thisauthor
+
+router.put '/update', (req, res) ->
+  error_msg = null
+  redirect = false
+  if !field_validator.fieldExists req.body.author_name
+    error_msg = 'Author name is undefined'
+  if !field_validator.fieldExists req.body.author_fullname
+    error_msg = 'Author full name is undefined'
+  if !field_validator.dateExistsBefore req.body.author_birthdate
+    error_msg = 'The birth date have to be before today'
+  if !field_validator.fieldExists req.body.author_id or !field_validator.fieldExists req.body.author_rev
+    error_msg = 'Some error has ocurred with the data'
+    redirect = true
+  if error_msg isnt null
+    return res.status(422).json(
+      msg: error_msg
+      show: true
+      success: false
+      redirect: redirect
+    )
+  authorsModel.update req.body, (err, body) ->
+      if err
+        res.status(422).json(
+          msg: 'Error on update author'
+          show: true
+          sucess: false
+          redirect: false
+        )
+      else
+        res.status(200).json(
+          msg: 'Author has been updated'
+          show: true
+          success: true
+          redirect: '/authors'
+        )
 module.exports = router
