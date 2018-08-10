@@ -125,18 +125,18 @@ router.put '/update', (req, res) ->
       redirect: redirect
     )
   authorsModel.update req.body, (err, body) ->
-      if err
-        res.status(422).json(
-          msg: 'Error on update author'
-          show: true
-          sucess: false
-          redirect: false
-        )
-      else
-        res.status(200).json(
-          msg: 'Author has been updated'
-          show: true
-          success: true
-          redirect: '/authors'
-        )
+    if err
+      res.status(422).json(
+        msg: 'Error on update author'
+        show: true
+        sucess: false
+        redirect: false
+      )
+    else
+      res.status(200).json(
+        msg: 'Author has been updated'
+        show: true
+        success: true
+        redirect: '/authors'
+      )
 module.exports = router
