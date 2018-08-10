@@ -16,7 +16,7 @@ initCouch (err) ->
 indexRouter = require './routes/index'
 booksRouter = require './routes/books'
 authorsRouter = require './routes/authors'
-
+genresRouter = require './routes/genres'
 app = express()
 
 # view engine setup
@@ -35,6 +35,7 @@ app.use '/spectre', express.static('node_modules/spectre.css/dist')
 app.use '/', indexRouter
 app.use '/books', booksRouter
 app.use '/authors', authorsRouter
+app.use '/genres', genresRouter
 
 app.use (req, res, next) ->
   res.header 'Access-Control-Allow-Origin', '*'

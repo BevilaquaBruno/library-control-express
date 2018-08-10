@@ -1,0 +1,29 @@
+extends ../layout
+
+include ../includes/_mixins.pug
+
+block content  
+  +chipPage({href: '/genres', name: 'Genres'}, {href: '/genres/create', name: 'Create a Genre'})
+  .colums    
+    .card
+      .card-header
+        h3=title
+      .card-body        
+        form(id="formCreateGenre")
+          .columns
+            .column.col-6.col-xl-6.col-lg-12.col-md-12.col-xs-12.col-sm-12
+              .col-12.col-xs-12.col-sm-12
+                label.form-label(for="genre_description")
+              .col-12.col-xs-12.col-sm-12
+                input(class="form-input",type="text",id="genre_description", name="genre_description", placeholder="Action")
+      .card-footer
+        .columns
+          .column.col-3.col-lg-6.col-xs-12.col-sm-12
+            .col-12.col-xs-12.col-sm-12
+              button(type="submit" class="btn btn-rounded btn-success col-12", id="submitGenreCreate") Create
+          .column.col-3.col-lg-6.col-xs-12.col-sm-12
+            .col-12.col-xs-12.col-sm-12
+            a(class="btn btn-rounded btn-default col-12", href="/genres") Cancel
+
+block append scripts-js
+  script(type='text/javascript', src='/javascripts/genresCreate.js')
