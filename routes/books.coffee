@@ -32,7 +32,6 @@ router.get '/update/:id', (req, res)->
       redirect: '/books'
     )
   booksModel.getBookById req.params.id, (err, thisbook) ->
-    console.log thisbook
     res.render 'books/booksUpdate',
       title: 'Update a book'
       msg: 'page open'
