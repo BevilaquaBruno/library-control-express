@@ -99,6 +99,13 @@ router.get '/update/:id', (req, res) ->
       redirect: '/books'
     )
   authorsModel.getAuthorById req.params.id, (err, thisauthor) ->
+    if err 
+      res.status(422).json(
+        msg: 'Error on get author'
+        show: true,
+        redirect: '/books'
+        success: false
+      )
     res.render 'authors/authorsUpdate',
       title: 'Update a author'
       msg: 'page open'
