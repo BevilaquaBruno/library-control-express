@@ -96,7 +96,7 @@ router.get '/update/:id', (req, res) ->
       msg: 'Error identifying book'
       success: false
       show: true
-      redirect: '/books'
+      redirect: '/authors'
     )
   authorsModel.getAuthorById req.params.id, (err, thisauthor) ->
     if err 
