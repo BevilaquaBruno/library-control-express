@@ -99,7 +99,7 @@ router.get '/update/:id', (req, res) ->
       redirect: '/authors'
     )
   authorsModel.getAuthorById req.params.id, (err, thisauthor) ->
-    if err 
+    if err
       res.status(422).json(
         msg: 'Error on get author'
         show: true,

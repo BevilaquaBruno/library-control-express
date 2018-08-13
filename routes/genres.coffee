@@ -12,7 +12,7 @@ router.get '/', (req, res) ->
       msg = 'Error on get genres'
     else
       show = false
-      msg = 'page open' 
+      msg = 'page open'
 
     res.render 'genres/genres',
       title: 'Genres'
@@ -54,8 +54,8 @@ router.post '/create', (req, res) ->
           redirect: false
         )
 
-router.delete '/delete/:id', (req, res) ->  
-  if !field_validator.fieldExists req.params.id    
+router.delete '/delete/:id', (req, res) ->
+  if !field_validator.fieldExists req.params.id
     res.status(422).json(
       msg:'Error on idenfying genre'
       success: false
@@ -86,9 +86,9 @@ router.get '/update/:id', (req, res) ->
       success: true
       show: true
       redirect: '/genres'
-    )  
+    )
   genresModel.getGenreById req.params.id, (err, thisgenre) ->
-    if err 
+    if err
       res.status(422).json(
         msg: 'Error on get genre'
         show: true,
@@ -97,7 +97,7 @@ router.get '/update/:id', (req, res) ->
       )
     res.render 'genres/genresUpdate',
       title: 'Update a Genre'
-      msg: 'page open'      
+      msg: 'page open'
       show: false
       data: thisgenre
 

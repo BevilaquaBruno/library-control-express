@@ -32,7 +32,7 @@ router.get '/update/:id', (req, res)->
       redirect: '/books'
     )
   booksModel.getBookById req.params.id, (err, thisbook) ->
-    if err 
+    if err
       res.status(422).json(
         msg: 'Error on get book'
         show: true,
