@@ -14,14 +14,13 @@ block content
       table(class="table table-hover table-striped table-scroll")
         thead
           tr
-            +thead-tables('id','Name', 'Foundation date', 'Founders', 'Headquarters', 'Website')
+            +thead-tables('id','Name', 'Foundation date', 'Headquarters', 'Website')
         tbody    
         each genre in data
           tr
             td(style="display: none")= publisher.id
             td= publisher.doc.name
-            td= publisher.doc.foundation_date
-            td= publisher.doc.founders
+            td= publisher.doc.foundation_date            
             td= publisher.doc.headquarters
             td
               a(class="btn btn-link", href=publisher.doc.website)=publisher.doc.website
