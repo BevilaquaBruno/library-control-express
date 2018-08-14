@@ -16,7 +16,7 @@ block content
           tr
             +thead-tables('id','Name', 'Foundation date', 'Headquarters', 'Website')
         tbody    
-        each genre in data
+        each publisher in data
           tr
             td(style="display: none")= publisher.id
             td= publisher.doc.name
