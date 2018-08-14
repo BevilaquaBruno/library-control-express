@@ -7,7 +7,7 @@ field_validator = require '../helpers/fields-validator'
 
 router.get '/', (req, res) ->
   authorsModel.getAll(true, (err, body) ->
-    if body.rows > 0 or err
+    if body.rows <= 0 or err
       show = true
       msg = 'Error on get authors'
     else
