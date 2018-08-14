@@ -5,6 +5,7 @@ databases = [
   'books'
   'authors'
   'genres'
+  'publishers'
 ]
 
 initCouch = (cb)->
