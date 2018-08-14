@@ -1,0 +1,49 @@
+extends ../layout
+
+include ../includes/_mixins.pug
+
+block content  
+  +chipPage({href: '/publishers', name: 'Publishers'}, {href: '/publishers/create', name: 'Create a publisher'})
+  .colums    
+    .card
+      .card-header
+        h3=title
+      .card-body        
+        form(id="formCreatePublisher")
+          .columns
+            .column.col-6.col-xl-6.col-lg-12.col-md-12.col-xs-12.col-sm-12
+              .col-12.col-xs-12.col-sm-12
+                label.form-label(for="publisher_name") Name
+              .col-12.col-xs-12.col-sm-12
+                input(class="form-input",type="text",id="publisher_name", name="publisher_name", placeholder="Ática")
+              .col-12.col-xs-12.col-sm-12
+                label.form-label(for="publisher_founders") Founders
+              .col-12.col-xs-12.col-sm-12
+                input(type="text", name="publisher_founders", id="publisher_founders", class="form-input", placeholder="Max, Bruno and Josh")
+                  
+            .column.col-6.col-xl-6.col-lg-7.col-md-12.col-xs-12.col-sm-12
+              .col-12.col-xs-12.col-sm-12
+                label.form-label Foundation Date
+              .col-12.col-xs-12.col-sm-12
+                input(type="date", name="publisher_foundationdate", class="form-input")
+              .col-12.col-xs-12.col-sm-12
+                label.form-label Website                                  
+              .col-12.col-xs-12.col-sm-12
+                input(type="text", name="publisher_website", class="form-input", placeholder="https://www.myswebsite.com.br")
+            
+            .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
+              .col-12.col-xs-12.col-sm-12
+                label.form-label(for="publisher_headquarters") Headquarters
+              .col-12.col-xs-12.col-sm-12
+                input(type="text", name="publisher_headquarters", class="form-input", placeholder="Stratford-upon-Avon, England")
+      .card-footer
+        .columns
+          .column.col-3.col-lg-6.col-xs-12.col-sm-12
+            .col-12.col-xs-12.col-sm-12
+              button(type="submit" class="btn btn-rounded btn-success col-12", id="submitPublisherCreate") Create
+          .column.col-3.col-lg-6.col-xs-12.col-sm-12
+            .col-12.col-xs-12.col-sm-12
+            a(class="btn btn-rounded btn-default col-12", href="/publishers") Cancel
+
+block append scripts-js
+  script(type='text/javascript', src='/javascripts/publishersCreate.js')

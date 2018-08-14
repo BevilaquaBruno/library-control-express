@@ -20,10 +20,10 @@ block content
           tr
             td(style="display: none")= publisher.id
             td= publisher.doc.name
-            td= publisher.doc.foundation_date            
+            td= publisher.doc.foundationdate            
             td= publisher.doc.headquarters
             td
-              a(class="btn btn-link", href=publisher.doc.website)=publisher.doc.website
+              a(class="btn btn-link",target="_blank", href=publisher.doc.website)=publisher.doc.website
             td(style="width: 11%") 
               +action-buttons('publisher','Publisher',publisher.id,"update", "delete")
      
