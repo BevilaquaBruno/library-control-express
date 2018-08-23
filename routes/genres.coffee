@@ -63,7 +63,6 @@ router.delete '/delete/:id', (req, res) ->
       redirect: '/genres'
     )
   genresModel.delete req.params.id, (err, body) ->
-    console.log 'aaa'
     if !err
       res.status(200).json(
         msg:'Genre deleted !'
