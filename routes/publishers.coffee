@@ -108,7 +108,7 @@ router.get '/update/:id', (req, res) ->
       data: thispublisher
 
 router.put '/update', (req, res) ->
-  if !field_validator.fieldExists req.body.publisher_name or !field_validator.dateExistsBefore req.body.publisher_foundationdate  
+  if !field_validator.fieldExists req.body.publisher_name or !field_validator.dateExistsBefore req.body.publisher_foundationdate
     res.status(422).json(
       msg: 'Publisher description is undefined'
       show: true
