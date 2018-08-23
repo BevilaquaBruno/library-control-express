@@ -18,6 +18,7 @@ booksRouter = require './routes/books'
 authorsRouter = require './routes/authors'
 genresRouter = require './routes/genres'
 publishersRouter = require './routes/publishers'
+themesRouter = require './routes/themes'
 
 app = express()
 
@@ -39,6 +40,7 @@ app.use '/books', booksRouter
 app.use '/authors', authorsRouter
 app.use '/genres', genresRouter
 app.use '/publishers', publishersRouter
+app.use '/themes', themesRouter
 
 app.use (req, res, next) ->
   res.header 'Access-Control-Allow-Origin', '*'
