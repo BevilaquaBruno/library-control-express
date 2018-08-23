@@ -118,7 +118,7 @@ router.put '/update', (req, res) ->
           redirect: false
         )
       else
-        res.status(422).json(
+        res.status(200).json(
           msg: 'Genres has been updated'
           show: true
           success: true
