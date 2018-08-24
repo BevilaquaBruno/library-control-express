@@ -17,22 +17,22 @@ router.get '/', (req, res) ->
       msg = 'page open'
     arrBooks = body.rows
 
-    authorsModel.getAll true, (err, authors) ->    
-      add = (i, author) ->        
+    authorsModel.getAll true, (err, authors) ->
+      add = (i, author) ->
         if arrBooks[i].doc.authorid is author.doc._id
-          arrBooks[i].doc.author = author                        
+          arrBooks[i].doc.author = author
 
-      verify = (iBook) ->            
+      verify = (iBook) ->
         add iBook, actualAuthor for actualAuthor, i in authors.rows
 
-      verify j for actualBook, j in arrBooks      
+      verify j for actualBook, j in arrBooks
 
       res.render 'books/books',
         title: 'Books',
         data: arrBooks
         show: show
-        msg:  msg    
-      )    
+        msg:  msg
+      )
 
 router.get '/create', (req, res) ->
   authorsModel = require '../models/authorsModel'
@@ -52,7 +52,7 @@ router.get '/create', (req, res) ->
             title: 'Create a Book',
             show: false,
             msg:  'page open',
-            data: 
+            data:
               authors: authors,
               genres: genres,
               publishers: publishers,
@@ -64,12 +64,12 @@ router.post '/create', (req, res) ->
   if !field_validator.dateExistsBefore req.body.book_releasedate
     error_msg = 'Book release date must be before today'
   if !field_validator.fieldExists req.body.book_language
-    error_msg = 'Book Language is undefined'      
+    error_msg = 'Book Language is undefined'
   if !field_validator.fieldExists req.body.book_author
     error_msg = 'Book author is undefined'
   if !field_validator.fieldExists req.body.book_name
     error_msg = 'Book name is undefined'
-  if error_msg isnt null    
+  if error_msg isnt null
     res.status(422).json(
       msg: error_msg
       show: true
@@ -102,7 +102,7 @@ router.get '/update/:id', (req, res)->
       show: true
       redirect: '/books'
     )
-  booksModel.getBookById req.params.id, (err, thisbook) ->    
+  booksModel.getBookById req.params.id, (err, thisbook) ->
     if err
       res.status(422).json(
         msg: 'Error on get book'
@@ -121,13 +121,13 @@ router.get '/update/:id', (req, res)->
         publishersModel.getAll true, (err, body) ->
           publishers = body.rows
           themesModel.getAll true, (err, body) ->
-            themes = body.rows          
+            themes = body.rows
             res.render 'books/booksUpdate',
               title: 'Update a book'
               msg: 'page open'
               show: false
               databook: thisbook
-              data: 
+              data:
                 authors: authors,
                 genres: genres,
                 publishers: publishers,
@@ -157,17 +157,17 @@ router.delete '/delete/:id', (req, res)->
         redirect: false
       )
 
-router.put '/update', (req, res) ->  
+router.put '/update', (req, res) ->
   error_msg = null
   if !field_validator.dateExistsBefore req.body.book_releasedate
     error_msg = 'Book release date must be before today'
   if !field_validator.fieldExists req.body.book_language
-    error_msg = 'Book Language is undefined'      
+    error_msg = 'Book Language is undefined'
   if !field_validator.fieldExists req.body.book_author
     error_msg = 'Book author is undefined'
   if !field_validator.fieldExists req.body.book_name
     error_msg = 'Book name is undefined'
-  if error_msg isnt null    
+  if error_msg isnt null
     res.status(422).json(
       msg: error_msg
       show: true
