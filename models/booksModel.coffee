@@ -1,7 +1,7 @@
 books = require('../couchdb').use('books')
 
 exports.create = (book, myHash, callback) ->
-  return books.insert {_id: myHash, timestamp: book.book_timestamp, name: book.book_name}, (err, body) ->
+  return books.insert { _id: myHash, timestamp: book.book_timestamp, name: book.book_name, authorid: book.book_author, genreid: book.book_genre, themeid: book.book_theme, publisherid: book.book_publisher, language: book.book_language, mainlanguage: book.book_mainlanguage, releasedate: book.book_releasedate }, (err, body) ->
     callback err, body
 
 exports.delete = (book_id, callback) ->
@@ -23,6 +23,6 @@ exports.getBookById = (id, callback) ->
           callback err, item.doc
 
 exports.update = (book, callback) ->
-  books.insert {_id: book.book_id, _rev: book.book_rev, name: book.book_name},(err, body) ->
+  books.insert {_id: book.book_id, _rev: book.book_rev, name: book.book_name, authorid: book.book_author, genreid: book.book_genre, themeid: book.book_theme, publisherid: book.book_publisher, language: book.book_language, mainlanguage: book.book_mainlanguage, releasedate: book.book_releasedate },(err, body) ->
     callback err, body
   return

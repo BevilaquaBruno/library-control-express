@@ -9,21 +9,48 @@ block content
       .card-header
         h3=title
       .card-body        
-        form(id="formCreateBook")              
+        form(id="formCreateBook")
           .columns
-            .column.col-3
-              .col-1
-                label(class="form-label") Name
-              .col-11
-                input(class="form-input",type="text",id="book_name", name="book_name", placeholder="Name")
-            .column.col-6       
-              .col-1                
-                label(class="form-label") Gender
-              .col-3
-                select(class="form-select", name="book_gender")
-                  option(value="1") Action
-                  option(value="2") Romance  
+            .column.col-6.col-xl-6.col-lg-12.col-md-12.col-xs-12.col-sm-12
+              .col-12.col-xs-12.col-sm-12
+                label.form-label(for="book_name") Name
+              .col-12.col-xs-12.col-sm-12
+                input(class="form-input",type="text",id="book_name", name="book_name", placeholder="Sítio do Pica Pau Amarelo")
+              .col-12.col-xs-12.col-sm-12
+                label.form-label Author
+              .col-12.col-xs-12.col-sm-12
+                +createSelect('book_author',data.authors, 'No author', 'name', null)
                   
+            .column.col-6.col-xl-6.col-lg-7.col-md-12.col-xs-12.col-sm-12
+              .col-12.col-xs-12.col-sm-12
+                label.form-label Genre
+              .col-12.col-xs-12.col-sm-12
+                +createSelect('book_genre', data.genres, 'No genre', 'description', null)
+              .col-12.col-xs-12.col-sm-12
+                label.form-label Theme
+              .col-12.col-xs-12.col-sm-12
+                +createSelect('book_theme', data.themes, 'No theme', 'description', null)
+                  
+            .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
+              .col-12.col-xs-12.col-sm-12
+                label.fom-label(for="book_language") Language
+              .col-12.col-xs-12.col-sm-12
+                input(type="text", name="book_language", placeholder="English", class="form-input")
+              .col-12.col-xs-12.col-sm-12
+                label.form-label(for="book_mainlanguage") Main Language
+              .col-12.col-xs-12.col-sm-12
+                input(type="text", name="book_mainlanguage",class="form-input" ,placeholder="English")
+
+            .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
+              .col-12.col-xs-12.col-sm-12
+                label.form-label Publisher
+              .col-12.col-xs-12.col-sm-12
+                +createSelect('book_publisher', data.publishers, 'No publisher', 'name', null)
+              .col-12.col-xs-12.col-sm-12
+                label.fom-label Relese Date
+              .col-12.col-xs-12.col-sm-12
+                input(type="date", name="book_releasedate", class="form-input")
+
       .card-footer
         .col-3
           button(type="submit" class="btn btn-rounded btn-success", id="submitBook") Create

@@ -14,15 +14,15 @@ block content
       table(class="table table-hover table-striped table-scroll")
         thead
           tr
-            +thead-tables('id','Name','Authors','Release date','Publisher','Actions')          
+            +thead-tables('id','Name','Author','Release date','Language','Actions')          
         tbody    
         each book in data
           tr
             td(style="display: none")= book.id
             td= book.doc.name
-            td= book.doc.name
-            td= book.doc.name
-            td= book.doc.name        
+            td= book.doc.author.doc.name
+            td= book.doc.releasedate
+            td= book.doc.language
             td(style="width: 11%") 
               +action-buttons('book','Book',book.id,"update", "delete")
      
