@@ -38,3 +38,5 @@
   ```
   npm run-script coffee-compile-watch
   ```
+
+- [local link to couchdb manager: ](http://127.0.0.1:5984/_utils/#/_all_dbs)
