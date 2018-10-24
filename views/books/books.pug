@@ -2,20 +2,20 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   .card
     .card-header.card-header-table-gray
       .columns
         .column.col-10
           h1= title
         .column
-          a(class="btn btn-rounded btn-success", href="/books/create") Create a book    
-    .card-body        
+          a(class="btn btn-rounded btn-success", href="/books/create") Create a book
+    .card-body
       table(class="table table-hover table-striped table-scroll")
         thead
           tr
-            +thead-tables('id','Name','Author','Release date','Language','Actions')          
-        tbody    
+            +thead-tables('id','Name','Author','Release date','Language','Actions')
+        tbody
         each book in data
           tr
             td(style="display: none")= book.id
@@ -23,7 +23,7 @@ block content
             td= book.doc.author.doc.name
             td= book.doc.releasedate
             td= book.doc.language
-            td(style="width: 11%") 
+            td(style="width: 11%")
               +action-buttons('book','Book',book.id,"update", "delete")
-     
-//- block append scripts-js  
+
+//- block append scripts-js

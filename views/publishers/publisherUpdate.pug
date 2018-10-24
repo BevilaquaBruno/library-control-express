@@ -2,13 +2,13 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   +chipPage({href: '/publishers', name: 'Publishers'}, {href: '#', name: 'Update a publisher'})
-  .colums    
+  .colums
     .card
       .card-header
         h3=title
-      .card-body        
+      .card-body
         form(id="formUpdatePublisher")
           input(type="hidden", name="publisher_id", value=data._id)
           input(type="hidden", name="publisher_rev", value=data._rev)
@@ -22,17 +22,17 @@ block content
                 label.form-label(for="publisher_founders") Founders
               .col-12.col-xs-12.col-sm-12
                 input(type="text", name="publisher_founders", id="publisher_founders", class="form-input", placeholder=data.founders, value=data.founders)
-                  
+
             .column.col-6.col-xl-6.col-lg-7.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.form-label Foundation Date
               .col-12.col-xs-12.col-sm-12
                 input(type="date", name="publisher_foundationdate", class="form-input", value=data.foundationdate)
               .col-12.col-xs-12.col-sm-12
-                label.form-label Website                                  
+                label.form-label Website
               .col-12.col-xs-12.col-sm-12
                 input(type="text", name="publisher_website", class="form-input", placeholder=data.website, value=data.website)
-            
+
             .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.form-label(for="publisher_headquarters") Headquarters

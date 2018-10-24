@@ -6,32 +6,32 @@ mixin action-buttons(field, big_field,id, ...opcs)
           a(class="btn btn-sm btn-primary", name="update"+big_field, id="update"+big_field, href="http://localhost:3000/"+field+"s/update/"+id) Update
         when "delete"
           button(class="btn btn-sm btn-error delete"+big_field, name="delete"+big_field, id="delete"+big_field, onclick="sendDelete('http://localhost:3000/"+field+"s/delete/"+id+"')") Delete
-        
+
 mixin thead-tables(...tds)
   each td in tds
     case td
       when "id"
-        
-        td(style="display: none") id          
+
+        td(style="display: none") id
       default
-              
-        td=td 
+
+        td=td
 
 mixin chipPage(...opcs)
   span.chip
     <i class="avatar avatar-sm icon icon-more-horiz"></i>
-    ul(class="breadcrumb")      
+    ul(class="breadcrumb")
       each opc in opcs
         li.breadcrumb-item
           a(href=opc.href)=opc.name
   div(style="padding-bottom: 5px;")
 
-mixin createSelect(itemname,data, noItem, field, itemvalue)  
+mixin createSelect(itemname,data, noItem, field, itemvalue)
   select(name=itemname, class="form-select")
     option(value='')=noItem
-    each item in data      
+    each item in data
       case field
-        when 'name'          
+        when 'name'
           if itemvalue === item.id
             option(value=item.id, selected="")=item.doc.name
           else
@@ -40,9 +40,8 @@ mixin createSelect(itemname,data, noItem, field, itemvalue)
           if itemvalue === item.id
             option(value=item.id, selected="")=item.doc.description
           else
-            option(value=item.id)=item.doc.description          
+            option(value=item.id)=item.doc.description
         default
-          break          
+          break
 
-    
-  
+

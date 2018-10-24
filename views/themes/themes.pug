@@ -2,7 +2,7 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   .card
     .card-header.card-header-table-gray
       .columns
@@ -10,17 +10,17 @@ block content
           h1= title
         .column
           a(class="btn btn-rounded btn-success", href="/themes/create") Create a theme
-    .card-body        
+    .card-body
       table(class="table table-hover table-striped table-scroll")
         thead
           tr
-            +thead-tables('id','Description','Actions')          
-        tbody    
+            +thead-tables('id','Description','Actions')
+        tbody
         each theme in data
           tr
             td(style="display: none")= theme.id
-            td= theme.doc.description            
-            td(style="width: 11%") 
+            td= theme.doc.description
+            td(style="width: 11%")
               +action-buttons('theme','Theme',theme.id,"update", "delete")
-     
+
 //- block append scripts-js

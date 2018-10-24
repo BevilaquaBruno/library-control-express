@@ -2,13 +2,13 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   +chipPage({href: '/themes', name: 'Themes'}, {href: '#', name: 'Update a Theme'})
-  .colums    
+  .colums
     .card
       .card-header
         h3=title
-      .card-body        
+      .card-body
         form(id="formUpdateTheme")
           input(type="hidden", name="theme_id", value=data._id)
           input(type="hidden", name="theme_rev", value=data._rev)

@@ -2,7 +2,7 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   .card
     .card-header.card-header-table-gray
       .columns
@@ -10,21 +10,21 @@ block content
           h1= title
         .column
           a(class="btn btn-rounded btn-success", href="/publishers/create") Create a publisher
-    .card-body        
+    .card-body
       table(class="table table-hover table-striped table-scroll")
         thead
           tr
             +thead-tables('id','Name', 'Foundation date', 'Headquarters', 'Website','Actions')
-        tbody    
+        tbody
         each publisher in data
           tr
             td(style="display: none")= publisher.id
             td= publisher.doc.name
-            td= publisher.doc.foundationdate            
+            td= publisher.doc.foundationdate
             td= publisher.doc.headquarters
             td
               a(class="btn btn-link",target="_blank", href=publisher.doc.website)=publisher.doc.website
-            td(style="width: 11%") 
+            td(style="width: 11%")
               +action-buttons('publisher','Publisher',publisher.id,"update", "delete")
-     
+
 //- block append scripts-js

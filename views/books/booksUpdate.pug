@@ -2,13 +2,13 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   +chipPage({href: '/books', name: 'Books'}, {href: '#' , name: 'Update a book'})
-  .colums    
+  .colums
     .card
       .card-header
         h3=title
-      .card-body        
+      .card-body
         form(id="formUpdateBook")
           input(type="hidden", name="book_id", value=databook._id)
           input(type="hidden", name="book_rev",value=databook._rev)
@@ -20,19 +20,19 @@ block content
                 input(class="form-input",type="text",id="book_name", name="book_name", placeholder=databook.name, value=databook.name)
               .col-12.col-xs-12.col-sm-12
                 label.form-label Author
-              .col-12.col-xs-12.col-sm-12                
+              .col-12.col-xs-12.col-sm-12
                 +createSelect('book_author',data.authors, 'No author', 'name', databook.authorid)
-                  
+
             .column.col-6.col-xl-6.col-lg-7.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.form-label Genre
-              .col-12.col-xs-12.col-sm-12                
+              .col-12.col-xs-12.col-sm-12
                 +createSelect('book_genre', data.genres, 'No genre', 'description', databook.genreid)
               .col-12.col-xs-12.col-sm-12
                 label.form-label Theme
-              .col-12.col-xs-12.col-sm-12                
+              .col-12.col-xs-12.col-sm-12
                 +createSelect('book_theme', data.themes, 'No theme', 'description', databook.themeid)
-                  
+
             .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.fom-label(for="book_language") Language
@@ -46,13 +46,13 @@ block content
             .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.form-label Publisher
-              .col-12.col-xs-12.col-sm-12                
+              .col-12.col-xs-12.col-sm-12
                 +createSelect('book_publisher', data.publishers, 'No publisher', 'name', databook.publisherid)
               .col-12.col-xs-12.col-sm-12
                 label.fom-label Relese Date
               .col-12.col-xs-12.col-sm-12
                 input(type="date", name="book_releasedate", class="form-input", value=databook.releasedate)
-                  
+
       .card-footer
         .col-3
           button(type="submit" class="btn btn-rounded btn-success", id="submitBookUpdate") Update

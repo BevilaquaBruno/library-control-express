@@ -2,20 +2,20 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   .card
     .card-header.card-header-table-gray
       .columns
         .column.col-10
           h1= title
         .column
-          a(class="btn btn-rounded btn-success", href="/authors/create") Create a author    
-    .card-body        
+          a(class="btn btn-rounded btn-success", href="/authors/create") Create a author
+    .card-body
       table(class="table table-hover table-striped table-scroll")
         thead
           tr
-            +thead-tables('id','Name','Birth Date','Death Date','Nationality','Actions')          
-        tbody    
+            +thead-tables('id','Name','Birth Date','Death Date','Nationality','Actions')
+        tbody
         each author in data
           tr
             td(style="display: none")= author._id
@@ -23,7 +23,7 @@ block content
             td= author.doc.birthdate
             td= author.doc.deathdate
             td= author.doc.nationality
-            td(style="width: 11%") 
+            td(style="width: 11%")
               +action-buttons('author','Author',author.id,"update", "delete")
-     
-//- block append scripts-js  
+
+//- block append scripts-js

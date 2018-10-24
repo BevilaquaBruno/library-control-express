@@ -2,13 +2,13 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   +chipPage({href: '/themes', name: 'Themes'}, {href: '/themes/create', name: 'Create a Theme'})
-  .colums    
+  .colums
     .card
       .card-header
         h3=title
-      .card-body        
+      .card-body
         form(id="formCreateTheme")
           .columns
             .column.col-6.col-xl-6.col-lg-12.col-md-12.col-xs-12.col-sm-12

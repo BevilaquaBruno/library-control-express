@@ -6,17 +6,17 @@ html
     block scripts-head-js
       script(type='text/javascript', src='/javascripts/utils.js')
     block links-css
-      link(rel='stylesheet', href='/stylesheets/menu.css')   
-      link(rel='stylesheet', href='/stylesheets/core.css')   
+      link(rel='stylesheet', href='/stylesheets/menu.css')
+      link(rel='stylesheet', href='/stylesheets/core.css')
       link(rel='stylesheet', href='/spectre/spectre-exp.min.css')
       link(rel='stylesheet', href='/spectre/spectre-icons.min.css')
       link(rel='stylesheet', href='/spectre/spectre.min.css')
-      
-  body  
-    include includes/_menu.pug  
+
+  body
+    include includes/_menu.pug
     include includes/_modal.pug
     .container#containerMain
       block content
-      
+
     block scripts-js
-      
+

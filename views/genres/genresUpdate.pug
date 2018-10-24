@@ -2,13 +2,13 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   +chipPage({href: '/genres', name: 'Genres'}, {href: '#', name: 'Update a Genre'})
-  .colums    
+  .colums
     .card
       .card-header
         h3=title
-      .card-body        
+      .card-body
         form(id="formUpdateGenre")
           input(type="hidden", name="genre_id", value=data._id)
           input(type="hidden", name="genre_rev", value=data._rev)

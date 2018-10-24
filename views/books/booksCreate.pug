@@ -2,13 +2,13 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   +chipPage({href: '/books', name: 'Books'}, {href: '/books/create', name: 'Create a book'})
-  .colums    
+  .colums
     .card
       .card-header
         h3=title
-      .card-body        
+      .card-body
         form(id="formCreateBook")
           .columns
             .column.col-6.col-xl-6.col-lg-12.col-md-12.col-xs-12.col-sm-12
@@ -20,7 +20,7 @@ block content
                 label.form-label Author
               .col-12.col-xs-12.col-sm-12
                 +createSelect('book_author',data.authors, 'No author', 'name', null)
-                  
+
             .column.col-6.col-xl-6.col-lg-7.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.form-label Genre
@@ -30,7 +30,7 @@ block content
                 label.form-label Theme
               .col-12.col-xs-12.col-sm-12
                 +createSelect('book_theme', data.themes, 'No theme', 'description', null)
-                  
+
             .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.fom-label(for="book_language") Language

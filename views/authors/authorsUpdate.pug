@@ -2,27 +2,27 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   +chipPage({href: '/authors', name: 'Authors'}, {href: '#', name: 'Update a Author'})
-  .colums    
+  .colums
     .card
       .card-header
         h3=title
-      .card-body        
+      .card-body
         form(id="formUpdateAuthor")
           input(type="hidden", name="author_id", value=data._id)
           input(type="hidden", name="author_rev", value=data._rev)
           .columns
             .column.col-6.col-xl-6.col-lg-12.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
-                label.form-label(for="author_name") Name                  
+                label.form-label(for="author_name") Name
               .col-12.col-xs-12.col-sm-12
                 input(class="form-input",type="text",id="author_name", name="author_name", placeholder=data.name, value=data.name)
               .col-12.col-xs-12.col-sm-12
                 label.form-label(for="author_fullname") Full Name
               .col-12.col-xs-12.col-sm-12
                 input(type="text", name="author_fullname", class="form-input", placeholder=data.fullname, value=data.fullname)
-                  
+
             .column.col-6.col-xl-6.col-lg-7.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.form-label Birth Date
@@ -31,16 +31,16 @@ block content
               .col-12.col-xs-12.col-sm-12
                 label.form-label Death Date
                   span.chip *if your author is alive, forget this field.
-                
+
               .col-12.col-xs-12.col-sm-12
                 input(type="Date", name="author_deathdate", class="form-input", value=data.deathdate)
-            
+
             .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
-                label.form-label(for="author_birth_place") Birth Place 
+                label.form-label(for="author_birth_place") Birth Place
               .col-12.col-xs-12.col-sm-12
                 input(type="text", name="author_birth_place", class="form-input", placeholder=data.birth_place, value=data.birth_place)
-                  
+
             .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.fom-label(for="author_nationality") Nationality
@@ -54,7 +54,7 @@ block content
         .columns
           .column.col-3.col-lg-6.col-xs-12.col-sm-12
             .col-12.col-xs-12.col-sm-12
-              button(type="submit" class="btn btn-rounded btn-success col-12", id="submitAuthorUpdate") Update            
+              button(type="submit" class="btn btn-rounded btn-success col-12", id="submitAuthorUpdate") Update
           .column.col-3.col-lg-6.col-xs-12.col-sm-12
             .col-12.col-xs-12.col-sm-12
             a(class="btn btn-rounded btn-default col-12", href="/authors") Cancel

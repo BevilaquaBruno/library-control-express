@@ -2,25 +2,25 @@ extends ../layout
 
 include ../includes/_mixins.pug
 
-block content  
+block content
   +chipPage({href: '/authors', name: 'Authors'}, {href: '/authors/create', name: 'Create a Author'})
-  .colums    
+  .colums
     .card
       .card-header
         h3=title
-      .card-body        
+      .card-body
         form(id="formCreateAuthor")
           .columns
             .column.col-6.col-xl-6.col-lg-12.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
-                label.form-label(for="author_name") Name                  
+                label.form-label(for="author_name") Name
               .col-12.col-xs-12.col-sm-12
                 input(class="form-input",type="text",id="author_name", name="author_name", placeholder="Shakespeare")
               .col-12.col-xs-12.col-sm-12
                 label.form-label(for="author_fullname") Full Name
               .col-12.col-xs-12.col-sm-12
                 input(type="text", name="author_fullname", class="form-input", placeholder="William Shakespeare")
-                  
+
             .column.col-6.col-xl-6.col-lg-7.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.form-label Birth Date
@@ -29,16 +29,16 @@ block content
               .col-12.col-xs-12.col-sm-12
                 label.form-label Death Date
                   span.chip *if your author is alive, forget this field.
-                
+
               .col-12.col-xs-12.col-sm-12
                 input(type="Date", name="author_deathdate", class="form-input")
-            
+
             .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
-                label.form-label(for="author_birth_place") Birth Place 
+                label.form-label(for="author_birth_place") Birth Place
               .col-12.col-xs-12.col-sm-12
                 input(type="text", name="author_birth_place", class="form-input", placeholder="Stratford-upon-Avon, England")
-                  
+
             .column.col-6.col-xl-6.col-lg-6.col-md-12.col-xs-12.col-sm-12
               .col-12.col-xs-12.col-sm-12
                 label.fom-label(for="author_nationality") Nationality
